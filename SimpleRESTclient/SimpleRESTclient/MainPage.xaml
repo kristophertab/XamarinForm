@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SimpleRESTclient"
+             x:Class="SimpleRESTclient.MainPage">
+
+    <StackLayout>
+        <Label x:Name="outputLabel"
+           Text="..."
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        
+        <Entry
+            x:Name="urlEntry"
+            Text="http://192.168.43.195:60869/api/user" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        
+        <Button x:Name="getBtn"
+            Text="GET"
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="End"
+           Clicked="getBtn_Clicked"/>
+
+        <Button x:Name="postBtn"
+            Text="POST"
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="End"
+           Clicked="postBtn_Clicked"/>
+
+        <Button x:Name="putBtn"
+            Text="PUT"
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="End"
+           Clicked="putBtn_Clicked"/>
+
+        <Button x:Name="deleteBtn"
+            Text="DELETE"
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="End"
+           Clicked="deleteBtn_Clicked"/>
+    </StackLayout>
+
+</ContentPage>
