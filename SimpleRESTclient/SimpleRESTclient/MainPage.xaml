@@ -1,44 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              xmlns:local="clr-namespace:SimpleRESTclient"
              x:Class="SimpleRESTclient.MainPage">
 
-    <StackLayout>
-        <Label x:Name="outputLabel"
-           Text="..."
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-        
-        <Entry
-            x:Name="urlEntry"
-            Text="http://192.168.43.195:60869/api/user" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-        
-        <Button x:Name="getBtn"
-            Text="GET"
-           HorizontalOptions="CenterAndExpand"
-           VerticalOptions="End"
-           Clicked="getBtn_Clicked"/>
+   <ScrollView Margin="20">
+        <StackLayout>
+            <Entry x:Name="pathEntry" Text = "InputTransparent service URL here" HorizontalOptions="Center"  VerticalOptions="Start" />
+            <Label x:Name="outputLabel"  Text="..." HorizontalOptions="Center"  VerticalOptions="Start" />
 
-        <Button x:Name="postBtn"
-            Text="POST"
-           HorizontalOptions="CenterAndExpand"
-           VerticalOptions="End"
-           Clicked="postBtn_Clicked"/>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name ="prvBtn" Text="Previous" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label x:Name="sample" Text="-"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                <Button x:Name ="nextBtn" Text="Next" HorizontalOptions ="End" VerticalOptions="Center" Clicked="nextBtn_ClickedAsync"/>
+            </StackLayout>
 
-        <Button x:Name="putBtn"
-            Text="PUT"
-           HorizontalOptions="CenterAndExpand"
-           VerticalOptions="End"
-           Clicked="putBtn_Clicked"/>
-
-        <Button x:Name="deleteBtn"
-            Text="DELETE"
-           HorizontalOptions="CenterAndExpand"
-           VerticalOptions="End"
-           Clicked="deleteBtn_Clicked"/>
-    </StackLayout>
+            <Label Text="Plot appear here"  HorizontalOptions="Center"  VerticalOptions="EndAndExpand"/>
+            <microcharts:ChartView x:Name="chartView" Chart="{Binding Chart}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" />
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>
