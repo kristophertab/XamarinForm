@@ -8,15 +8,15 @@
    <ScrollView Margin="20">
         <StackLayout>
             <Entry x:Name="pathEntry" Text = "InputTransparent service URL here" HorizontalOptions="Center"  VerticalOptions="Start" />
-            <Label x:Name="outputLabel"  Text="..." HorizontalOptions="Center"  VerticalOptions="Start" />
-
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name ="prvBtn" Text="Previous" HorizontalOptions="Start" VerticalOptions="Center"/>
-                <Label x:Name="sample" Text="-"  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
-                <Button x:Name ="nextBtn" Text="Next" HorizontalOptions ="End" VerticalOptions="Center" Clicked="nextBtn_ClickedAsync"/>
-            </StackLayout>
+            <Label x:Name="labelMin"  Text="..." HorizontalOptions="Fill"  VerticalOptions="Start" />
+            <Button x:Name ="btnMin" Text="temp. min" HorizontalOptions ="Fill" VerticalOptions="Start" Clicked="btnMin_ClickedAsync"/>
+            <Label x:Name="labelMax"  Text="..." HorizontalOptions="Fill"  VerticalOptions="Start" />
+            <Button x:Name ="btnMax" Text="temp. max" HorizontalOptions ="Fill" VerticalOptions="Start" Clicked="btnMax_ClickedAsync"/>
+            <Label x:Name="labelAvr"  Text="..." HorizontalOptions="Fill"  VerticalOptions="Start" />
+            <Button x:Name ="btnAvr" Text="temp. average" HorizontalOptions ="Fill" VerticalOptions="Start" Clicked="btnAvr_ClickedAsync"/>
 
             <Label Text="Plot appear here"  HorizontalOptions="Center"  VerticalOptions="EndAndExpand"/>
+            <Button x:Name ="btnChart" Text="get chart data" HorizontalOptions ="Fill" VerticalOptions="Start" Clicked="btnChart_ClickedAsync"/>
             <microcharts:ChartView x:Name="chartView" Chart="{Binding Chart}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" />
         </StackLayout>
     </ScrollView>

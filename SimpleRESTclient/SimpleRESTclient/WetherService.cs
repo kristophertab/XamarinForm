@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SimpleRESTclient
@@ -6,14 +8,14 @@ namespace SimpleRESTclient
     class WetherService
     {
 
-        public static async Task<Weather> GetWeather(string path)
+        public static async Task<WeatherInService> GetWeather(string path)
         {
-            
+
             dynamic results = await DataService.GetDataFromService(path).ConfigureAwait(false);
 
             if (results["weather"] != null)
             {
-                Weather weather = new Weather();
+                WeatherInService weather = new WeatherInService();
                 weather.Id = (string)results["id"];
                 weather.Temperature = (string)results["main"]["temp"] + " F";
 
@@ -29,28 +31,24 @@ namespace SimpleRESTclient
         }
 
 
-    }
 
-    public class Weather
-    {
-        // Because labels bind to these values, set them to an empty string to
-        // ensure that the label appears on all platforms by default.
-        public string Id { get; set; } = " ";
-        public string Temperature { get; set; } = " ";
-        public string Date{ get; set; } = " ";
-
-        public string getWetherString()
+        public class WeatherInService
         {
-            string retStr = " ";
-            retStr += " Id :" + this.Id;
-            retStr += " Temp :" + this.Temperature;
-            retStr += " Date :" + this.Date;
+            // Because labels bind to these values, set them to an empty string to
+            // ensure that the label appears on all platforms by default.
+            public string Id { get; set; } = " ";
+            public string Temperature { get; set; } = " ";
+            public string Date { get; set; } = " ";
 
-            return retStr;
+            public string getWetherString()
+            {
+                string retStr = " ";
+                retStr += " Id :" + this.Id;
+                retStr += " Temp :" + this.Temperature;
+                retStr += " Date :" + this.Date;
+
+                return retStr;
+            }
         }
     }
-
-
-
-
 }
